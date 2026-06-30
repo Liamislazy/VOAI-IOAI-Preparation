@@ -8,29 +8,27 @@ This repository contains an end-to-end machine learning solution designed to pre
 
 The pipeline implements an automated workflow tailored for robust, high-capacity tabular forecasting on large-scale datasets (~517k training samples).
 
-```mermaid
-graph TD
-    A[Raw Input Data] --> B[Domain Interactions]
-    A --> C[Group Aggregations]
-    
-    B --> D[One-Hot Alignment & Post-Encoding]
-    C --> D
-    
-    D --> E[XGBoost <br><i>Cuda</i>]
-    D --> F[LightGBM <br><i>GPU</i>]
-    D --> G[CatBoost <br><i>GPU</i>]
-    
-    E --> H(5-Fold OOF Predictions)
-    F --> H
-    G --> H
-    
-    H --> I[Inverse-RMSE Ensemble Weights]
-    I --> J[Final Bound-Clipped Submission]
-
-    %% Styling blocks to make it look sharp
-    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style H fill:#e1f5fe,stroke:#0288d1,stroke-width:1px
-    style J fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+      [ Raw Input Data ]
+               │
+      ┌────────┴────────┐
+      ▼                 ▼
+[ Interactions ]   [ Aggregations ]
+      └────────┬────────┘
+               │
+               ▼
+     [ One-Hot Alignment ]
+               │
+      ┌────────┼────────┐
+      ▼        ▼        ▼
+   [ XGB ]  [ LGB ]  [ CAT ]
+      │        │        │
+      └────────┼────────┘
+               │ (5-Fold OOF)
+               ▼
+     [ Inverse-RMSE Blend ]
+               │
+               ▼
+     [ Final Submission ]
 
 ### 1. Cross-Validation Framework
 * **5-Fold Cross Validation (`KFold`):** The data is split into five random partitions to generate reliable Out-Of-Fold (OOF) validation predictions. This safeguards against dataset leakage and guarantees an accurate proxy metric for the unseen test leaderboard.
