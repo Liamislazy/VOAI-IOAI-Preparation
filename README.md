@@ -9,7 +9,8 @@ This repository is the central hub for my competitive AI training, machine learn
 | Platform | Competition / Project Name | Task Type | Status / Result | Notebook Link |
 | :--- | :--- | :--- | :--- | :--- |
 | **Kaggle** | Titanic - Machine Learning from Disaster | Binary Classification | Completed | [Open Notebook](./kaggle/titanic.ipynb) |
-| **Kaggle** | Diabetes Prediction Challenge | Binary Classification | [💻 View on GitHub](./kaggle/titanic.ipynb) | [🚀 View on Kaggle](https://www.kaggle.com/code/liamislazy/diabetes-prediction-challenge) |
+| **Kaggle** | Diabetes Prediction Challenge | Binary Classification | Completed | [💻 View on GitHub](./kaggle/titanic.ipynb) | [🚀 View on Kaggle](https://www.kaggle.com/code/liamislazy/diabetes-prediction-challenge) |
+| **Kaggle** | Predicting Road Accident Risk | Binary Classification | Completed | [💻 View on GitHub](./kaggle/titanic.ipynb) |
 | **CodaBench** | [Example Mock Olympiad Challenge] | Computer Vision (CNN) | In Progress | [Open Notebook](./codabench/cv_challenge.ipynb) |
 | **Self-Project** | Custom Image Classifier Practice | Multi-class Vision | Done | [Open Notebook](./practice/image_clf.ipynb) |
 
