@@ -8,27 +8,27 @@ This repository contains an end-to-end machine learning solution designed to pre
 
 The pipeline implements an automated workflow tailored for robust, high-capacity tabular forecasting on large-scale datasets (~517k training samples).
 
-      [ Raw Input Data ]
-               │
-      ┌────────┴────────┐
-      ▼                 ▼
-[ Interactions ]   [ Aggregations ]
-      └────────┬────────┘
-               │
-               ▼
-     [ One-Hot Alignment ]
-               │
-      ┌────────┼────────┐
-      ▼        ▼        ▼
-   [ XGB ]  [ LGB ]  [ CAT ]
-      │        │        │
-      └────────┼────────┘
-               │ (5-Fold OOF)
-               ▼
-     [ Inverse-RMSE Blend ]
-               │
-               ▼
-     [ Final Submission ]
+            [ Raw Input Data ]
+                     │
+            ┌────────┴────────┐
+            ▼                 ▼
+    [ Interactions ]   [ Aggregations ]
+            └────────┬────────┘
+                     │
+                     ▼
+           [ One-Hot Alignment ]
+                     │
+            ┌────────┼────────┐
+            ▼        ▼        ▼
+         [ XGB ]  [ LGB ]  [ CAT ]
+            │        │        │
+            └────────┼────────┘
+                     │ (5-Fold OOF)
+                     ▼
+           [ Inverse-RMSE Blend ]
+                     │
+                     ▼
+           [ Final Submission ]
 
 ### 1. Cross-Validation Framework
 * **5-Fold Cross Validation (`KFold`):** The data is split into five random partitions to generate reliable Out-Of-Fold (OOF) validation predictions. This safeguards against dataset leakage and guarantees an accurate proxy metric for the unseen test leaderboard.
